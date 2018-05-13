@@ -4,18 +4,27 @@ import {
 	Route,
 	Link
 } from 'react-router-dom';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 
+//reducer
+import reducer from './redux/reducer.js';
+//css
+import css from './css/app.css';
 
+//组件
 import Home from './components/home/index.js';
 import New from './components/new/index.js';
 import Cases from './components/cases/index.js';
 import Contact from './components/contact/index.js';
 
-const App=()=>{
+
+//菜单和路由
+const Menu=()=>{
 	let menu=(
 		<Router>
 			<div>
-				<ul>
+				<ul className="menu">
 					<li><Link to='/'>六安墙布</Link></li>
 					<li><Link to='/'>首页</Link></li>
 					<li><Link to='/new'>2018新品</Link></li>
@@ -34,8 +43,9 @@ const App=()=>{
 	return menu;
 }
 
-
-// const App=<p>123</p>;
+//redux
+const store=createStore(reducer);
+const App=<Provider store={store}><Menu /></Provider>;
 
 export default App;
 

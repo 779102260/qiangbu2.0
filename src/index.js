@@ -7,6 +7,6 @@ let rootEle=document.createElement('div');
 document.body.append(rootEle);
 
 ReactDOM.render(
-	<App />,
+	App,
 	rootEle
 );
